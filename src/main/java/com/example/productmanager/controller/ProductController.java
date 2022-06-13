@@ -44,5 +44,8 @@ public class ProductController {
     }
 
 //    Hiện sản phẩm theo khoảng giá
-
+    @GetMapping("/findAllByPriceBetween")
+    public ResponseEntity<Iterable<Product>> findAllByPriceBetween(@RequestParam int idFrom, @RequestParam int idTo){
+        return new ResponseEntity<>(productService.findAllByPriceBetween(idFrom, idTo), HttpStatus.OK);
+    }
 }

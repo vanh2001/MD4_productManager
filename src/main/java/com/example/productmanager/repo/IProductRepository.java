@@ -20,4 +20,6 @@ public interface IProductRepository extends JpaRepository<Product, Long> {
 
     @Query(nativeQuery = true, value = FIND_PRODUCT_BY_CATEGORY_ID)
     Iterable<Product> findProductByCategoryId(Long id);
+
+    Iterable<Product> findAllByPriceBetween(int from, int to);
 }

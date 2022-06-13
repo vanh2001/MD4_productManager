@@ -51,4 +51,9 @@ public class ProductService implements IProductService{
     public Iterable<Product> findProductByCategoryId(Long id) {
         return productRepository.findProductByCategoryId(id);
     }
+
+    @Override
+    public Iterable<Product> findAllByPriceBetween(int from, int to) {
+        return productRepository.findAllByPriceBetween(from, to);
+    }
 }
