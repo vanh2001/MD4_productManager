@@ -18,9 +18,8 @@ public class ProductController {
         return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
     }
 
-    @PutMapping()
-    public ResponseEntity<Product> findByName(@RequestParam String name){
-        productService.findByName(name);
-        return new ResponseEntity<>(HttpStatus.OK);
+    @GetMapping("/search")
+    public ResponseEntity<Iterable<Product>> findByName(@RequestParam String name){
+        return new ResponseEntity<>(productService.findAllByNameContaining(name),HttpStatus.OK);
     }
 }
