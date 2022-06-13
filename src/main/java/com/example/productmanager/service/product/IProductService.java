@@ -11,4 +11,6 @@ public interface IProductService extends IGeneralService<Product> {
     Iterable<Product> findAllByOrderByPriceAsc();
 
     Iterable<Product> findTop4New();
+
+    Iterable<Product> findProductByCategoryId(Long id);
 }

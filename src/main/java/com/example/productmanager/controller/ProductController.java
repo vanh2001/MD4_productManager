@@ -38,7 +38,10 @@ public class ProductController {
     }
 
 //    Hiện sản phẩm 1 loại nào đó
-
+    @GetMapping("/findProductByCategoryId/{id}")
+    public ResponseEntity<Iterable<Product>> findProductByCategoryId(@PathVariable Long id){
+        return new ResponseEntity<>(productService.findProductByCategoryId(id), HttpStatus.OK);
+    }
 
 //    Hiện sản phẩm theo khoảng giá
 

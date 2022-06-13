@@ -46,4 +46,9 @@ public class ProductService implements IProductService{
     public Iterable<Product> findTop4New() {
         return productRepository.findTop4New();
     }
+
+    @Override
+    public Iterable<Product> findProductByCategoryId(Long id) {
+        return productRepository.findProductByCategoryId(id);
+    }
 }
