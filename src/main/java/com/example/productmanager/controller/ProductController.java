@@ -48,4 +48,27 @@ public class ProductController {
     public ResponseEntity<Iterable<Product>> findAllByPriceBetween(@RequestParam int idFrom, @RequestParam int idTo){
         return new ResponseEntity<>(productService.findAllByPriceBetween(idFrom, idTo), HttpStatus.OK);
     }
+
+//    Thêm
+    @PostMapping("")
+    public ResponseEntity<Product> createNewProduct(@RequestBody Product product){
+        productService.save(product);
+        return new ResponseEntity<>(product, HttpStatus.CREATED);
+    }
+
+//    Sửa
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProductById(@PathVariable Long id, @RequestBody Product product){
+        product.setId(id);
+        productService.save(product);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+//    Xóa
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Product> deleteById(@PathVariable Long id){
+        productService.remove(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }
