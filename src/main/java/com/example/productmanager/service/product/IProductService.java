@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface IProductService extends IGeneralService<Product> {
     Iterable<Product> findAllByNameContaining(String name);
+
+    Iterable<Product> findAllByOrderByPriceAsc();
 }

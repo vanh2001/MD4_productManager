@@ -22,4 +22,9 @@ public class ProductController {
     public ResponseEntity<Iterable<Product>> findByName(@RequestParam String name){
         return new ResponseEntity<>(productService.findAllByNameContaining(name),HttpStatus.OK);
     }
+
+    @GetMapping("/sort")
+    public ResponseEntity<Iterable<Product>> findAllByOrderByPriceAsc(){
+        return new ResponseEntity<>(productService.findAllByOrderByPriceAsc(),HttpStatus.OK);
+    }
 }
