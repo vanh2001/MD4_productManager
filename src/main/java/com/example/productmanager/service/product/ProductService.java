@@ -41,4 +41,9 @@ public class ProductService implements IProductService{
     public Iterable<Product> findAllByOrderByPriceAsc() {
         return productRepository.findAllByOrderByPriceAsc();
     }
+
+    @Override
+    public Iterable<Product> findTop4New() {
+        return productRepository.findTop4New();
+    }
 }

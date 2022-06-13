@@ -9,4 +9,6 @@ public interface IProductService extends IGeneralService<Product> {
     Iterable<Product> findAllByNameContaining(String name);
 
     Iterable<Product> findAllByOrderByPriceAsc();
+
+    Iterable<Product> findTop4New();
 }
