@@ -7,8 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/products")
+@CrossOrigin("*")
 public class ProductController {
     @Autowired
     private IProductService productService;
@@ -67,6 +70,7 @@ public class ProductController {
 //    Xóa
     @DeleteMapping("/{id}")
     public ResponseEntity<Product> deleteById(@PathVariable Long id){
+        Optional<Product> idProduct = productService.findById(id);
         productService.remove(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
