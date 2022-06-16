@@ -52,6 +52,13 @@ public class ProductController {
         return new ResponseEntity<>(productService.findAllByPriceBetween(idFrom, idTo), HttpStatus.OK);
     }
 
+//    Tìm theo id
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Product>> findById(@PathVariable Long id){
+        Optional<Product> product = productService.findById(id);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
 //    Thêm
     @PostMapping("")
     public ResponseEntity<Product> createNewProduct(@RequestBody Product product){
